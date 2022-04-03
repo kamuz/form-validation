@@ -1,6 +1,7 @@
 document.getElementById('name').addEventListener('blur', validateName);
 document.getElementById('zip').addEventListener('blur', validateZip);
 document.getElementById('email').addEventListener('blur', validateEmail);
+document.getElementById('phone').addEventListener('blur', validatePhone);
 
 // Validate Name
 function validateName(){
@@ -35,5 +36,17 @@ function validateEmail(){
 		email.classList.add('is-invalid');
 	} else {
 		email.classList.remove('is-invalid');
+	}
+}
+
+// Validate Phone
+function validatePhone(){
+	const phone = document.getElementById('phone');
+	const re = /^\(?\d{3}\)?[-. ]\d{3}[-. ]\d{2}[-. ]\d{2}$/;
+
+	if(!re.test(phone.value)){
+		phone.classList.add('is-invalid');
+	} else {
+		phone.classList.remove('is-invalid');
 	}
 }
