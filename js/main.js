@@ -1,6 +1,8 @@
 document.getElementById('name').addEventListener('blur', validateName);
 document.getElementById('zip').addEventListener('blur', validateZip);
+document.getElementById('email').addEventListener('blur', validateEmail);
 
+// Validate Name
 function validateName(){
 	const name = document.getElementById('name');
 	const re = /^[a-zA-Z]{2,10}$/;
@@ -12,6 +14,7 @@ function validateName(){
 	}
 }
 
+// Validate ZIP Code
 function validateZip(){
 	const zip = document.getElementById('zip');
 	const re = /^[0-9]{5}(-[0-9]{4})?$/;
@@ -20,5 +23,17 @@ function validateZip(){
 		zip.classList.add('is-invalid');
 	} else {
 		zip.classList.remove('is-invalid');
+	}
+}
+
+// Validate Email
+function validateEmail(){
+	const email = document.getElementById('email');
+	const re = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
+	if(!re.test(email.value)){
+		email.classList.add('is-invalid');
+	} else {
+		email.classList.remove('is-invalid');
 	}
 }
